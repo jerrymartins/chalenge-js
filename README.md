@@ -3,11 +3,8 @@
 yarn install
 
 # Para rodar os testes para todos os desafios
-npm run test:all
+yarn run test:all
 
 # Para rodar o teste para um desafio específico
-npm run test:challenge:1
+yarn run test:chalenge:sum
 ```
-# chalenges-js
-# chalenges-js
-# chalenge-js
