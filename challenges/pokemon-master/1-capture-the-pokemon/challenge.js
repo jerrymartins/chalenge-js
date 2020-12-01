@@ -15,7 +15,7 @@ const axios = require('axios')
 
 const capturePokemon = (pokemontoCaptur, myPokemons) => {
 
-    return ['bulbasaur', 'ivysaur', 'venusaur', 'caterpie', 'charizard'];
+    return myPokemons;
 }
 
 module.exports = capturePokemon
