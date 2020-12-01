@@ -1,9 +1,11 @@
 const sumArguments = require('./challenge')
 
 describe('sum', () => {
+
   test(`It should return 6 - only positive numbers
   [INPUT]: [15, 25, 15]`, () => {
-    expect(sumArguments([15, 25, 15])).toBe(55)
+    const result = sumArguments([15, 25, 15]);
+    expect(result).toBe(55)
   })
 
   test(`It should return 3 - with negative number
@@ -17,7 +19,7 @@ describe('sum', () => {
   })
 
   test(`It should return 8and weird - with numbers and strings
-  [INPUT]: [400, 0, 4, '404 not found']`, () => {
+  [INPUT]: [400, 0, 4, 'not found']`, () => {
     expect(sumArguments([400, 0, 4, ' not found'])).toBe('404 not found')
   })
 })

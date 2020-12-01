@@ -2,10 +2,15 @@
   "scripts": {
     "test:all": "jest",
     "test:chalenge:sum": "jest -t 'sum'",
-    "test:challenge:capture-pokemon": "jest -t 'capture the pokemon'",
-    "test:challenge:send-pokemon": "jest -t 'send the pokemon'"
+    "test:challenge:capture": "jest -t 'capture'",
+    "test:challenge:send": "jest -t 'send the pokemon'",
+    "test:challenge:by-type": "jest -t 'by type'"
   },
   "devDependencies": {
     "jest": "26.6.3"
+  },
+  "dependencies": {
+    "axios": "^0.21.0",
+    "axios-mock-adapter": "^1.19.0"
   }
 }
