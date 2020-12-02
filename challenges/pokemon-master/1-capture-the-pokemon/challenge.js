@@ -19,16 +19,20 @@ const search = (pokemonName) => {
 const capturePokemon = (pokemontoCaptur, myPokemons) => {
     search(pokemontoCaptur).then( (pokemon) => {
 
-        myPokemons.push(pokemon.data.name)
-
+        if(myPokemons.length < 6){
+            myPokemons.push(pokemon.data.name);
+            console.log(myPokemons);
+        }else {
+            console.log("Não pode adicionar mais pokemon");
+        }
+        
         return myPokemons;
 
     }).catch(error => {
         console.log(error)
     })
-    
 }
 
-capturePokemon('pikachu', ['bulbasaur', 'ivysaur', 'venusaur', 'caterpie', 'charizard', 'yuto'])
+capturePokemon('pikachu', ['bulbasaur', 'ivysaur', 'venusaur', 'caterpie', 'charizard'])
 
 module.exports = capturePokemon
