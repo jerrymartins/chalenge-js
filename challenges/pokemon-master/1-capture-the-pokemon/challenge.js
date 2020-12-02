@@ -12,8 +12,17 @@
 
 const axios = require('axios')
 
+axios.get('https://api.github.com/users/mapbox')
+
+const search = async (pokemonName) => {
+    const result  = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
+    return result;
+}
+    
 
 const capturePokemon = (pokemontoCaptur, myPokemons) => {
+    const pokemon = search(pokemontoCaptur);
+    if(pokemon) myPokemons.push(pokemon.forms.name)
 
     return myPokemons;
 }

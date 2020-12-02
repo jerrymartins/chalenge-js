@@ -12,7 +12,7 @@ var mock = new MockAdapter(axios);
  */
 
 describe('capture', () => {
-  test(`It should return array with lenght 4 - contains charmander
+  test(`It should return array with lenght 6 - contains charmander
   [INPUT]: 'charmander'`, async () => {
     const t = await mock.onGet("https://pokeapi.co/api/v2/pokemon/charmander").reply(200, charmander);
 
@@ -28,5 +28,23 @@ describe('capture', () => {
     const myPokemons = ['bulbasaur', 'ivysaur', 'venusaur', 'charmander', 'charizard'];
 
     expect(capturePokemon('charmander', myPokemons)).toThrowError('error');
+  })
+
+  test(`You should not add pokemon if invalid - invalid pokemon
+  [INPUT]: 'Java'`, async () => {
+    mock.onGet("https://pokeapi.co/api/v2/pokemon/charmander").reply(404, 'not found');
+
+    const myPokemons = ['bulbasaur', 'ivysaur', 'venusaur', 'charmander', 'charizard'];
+
+    expect(capturePokemon('charmander', myPokemons)).toThrowError('error');
+  })
+
+  test(`You should not add pokemon if you have more than 6 pokemon - invalid lenght
+  [INPUT]: 'Java'`, async () => {
+    mock.onGet("https://pokeapi.co/api/v2/pokemon/charmander").reply(404, 'not found');
+
+    const myPokemons = ['bulbasaur', 'ivysaur', 'venusaur', 'charmander', 'charizard'];
+
+    expect(capturePokemon('Java', myPokemons)).toThrowError('error');
   })
 })
