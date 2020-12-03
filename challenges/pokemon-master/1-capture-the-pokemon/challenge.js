@@ -16,19 +16,30 @@ const search = (pokemonName) => {
     return axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`)
 }
 
-const capturePokemon = (pokemontoCaptur, myPokemons) => {
+
+const capturePokemon = (pokemontoCaptur, myPokemons) => 
+
+{
     search(pokemontoCaptur).then( (pokemon) => {
 
-        myPokemons.push(pokemon.data.name)
+        if (myPokemons.length <= 5) {
 
+            myPokemons.push(pokemon.data.name)
+            console.log(myPokemons);
+
+
+        } else {
+
+            console.log("Você não pode ter mais de 6 pokémons no seu time!")
+        }
         return myPokemons;
 
     }).catch(error => {
         console.log(error)
-    })
-    
+    }) 
+                       
 }
 
-capturePokemon('pikachu', ['bulbasaur', 'ivysaur', 'venusaur', 'caterpie', 'charizard', 'yuto'])
+console.log(capturePokemon('pikachu',['ivysaur', 'venusaur', 'caterpie', 'charizard', 'yuto',]))
 
 module.exports = capturePokemon
